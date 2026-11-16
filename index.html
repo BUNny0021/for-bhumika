@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@ body{
 }
 body.has-video{--fabric-a:.10; --check-a:.50}
 
-/* hide decorate + panel ONLY when everything is uploaded */
+/* ===== HIDE EVERYTHING EDITABLE ONCE SONG IS LOCKED ===== */
 body.all-done .decor-btn,
 body.all-done .panel { display:none !important; }
 
@@ -197,6 +196,7 @@ body.has-video .section-title.on-light p{
 .final p{max-width:660px;line-height:1.95;color:#f9e3d9;margin:20px auto}
 .signature{font:44px 'Great Vibes',cursive;color:#f8cabb;margin-top:10px}
 
+/* music badge */
 .music{
   position:fixed;right:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:9px;
   background:rgba(253,241,222,.94);color:#64182a;border:1px solid #fff;border-radius:40px;padding:8px 15px;
@@ -210,6 +210,7 @@ body.has-video .section-title.on-light p{
 .music.playing .vinyl{animation-play-state:running}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* decorate button + panel */
 .decor-btn{
   position:fixed;left:18px;bottom:18px;z-index:45;border:0;border-radius:40px;padding:12px 18px;
   background:#f8dccb;color:#6c1b2d;font-weight:700;font-size:.82rem;
@@ -234,9 +235,6 @@ body.has-video .section-title.on-light p{
 .p-confirm p{margin:0 0 10px;font-size:.8rem;color:#6b1c2d;line-height:1.5}
 .p-confirm .row{display:flex;gap:8px;flex-wrap:wrap}
 .p-confirm .name{font-weight:700;word-break:break-all}
-.p-progress{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.p-chip{font-size:.68rem;padding:3px 8px;border-radius:20px;background:#eedac4;color:#8a5b66}
-.p-chip.done{background:#d8ecd8;color:#2e6b2e}
 
 #hearts{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
 .heart{position:absolute;bottom:-30px;animation:heartUp 4.4s ease-in forwards;font-size:22px}
@@ -435,8 +433,7 @@ Someone who thinks you're pretty special. ♡</div>
 
   <div class="p-block">
     <span class="p-label">📷 Our photos</span>
-    <p class="p-hint" style="margin:0">Tap any photo frame on the page to add or change a picture. Photos save in this browser.</p>
-    <div class="p-progress" id="photoProgress"></div>
+    <p class="p-hint" style="margin:0">Tap any photo frame on the page to add or change a picture. Photos are saved in this browser.</p>
   </div>
 
   <div class="p-block">
@@ -453,14 +450,14 @@ Someone who thinks you're pretty special. ♡</div>
 
     <div class="p-confirm" id="musicConfirm" hidden>
       <p>Add <span class="name" id="musicName">this song</span> as our song?<br>
-         It will loop forever in the background and <strong>cannot be changed after</strong>. ♡</p>
+         It will loop forever in the background, and <strong>the Decorate button will disappear forever</strong> — everything will be sealed. ♡</p>
       <div class="row">
-        <button class="pill small" id="musicYes">Yes, add it ♡</button>
+        <button class="pill small" id="musicYes">Yes, seal it ♡</button>
         <button class="pill small" id="musicNo">Cancel</button>
       </div>
     </div>
 
-    <p class="p-hint lock" id="lockNote">The Decorate button stays until you've added photos, a video, and a song. After that, everything seals forever. ♡</p>
+    <p class="p-hint lock" id="lockNote">Once you add your song everything locks — photos, video, and music can't be changed after. ♡</p>
   </div>
 </aside>
 
@@ -500,25 +497,11 @@ async function getBlob(k){
     q.onsuccess = () => r(q.result || null); q.onerror = () => j(q.error);
   }); }catch(e){ return null; }
 }
-
-/* ============ state ============ */
-const photosDone = [false, false, false, false];
-let videoDone  = false;
-let musicDone  = false;
-let fullySealed = false;
-
-const LOCK_KEY = 'ourSongIsLocked';
-
-/* ============ progress chips in panel ============ */
-const photoProgress = document.getElementById('photoProgress');
-function buildPhotoProgress(){
-  photoProgress.innerHTML = '';
-  for (let i = 0; i < 4; i++){
-    const chip = document.createElement('span');
-    chip.className = 'p-chip' + (photosDone[i] ? ' done' : '');
-    chip.textContent = (photosDone[i] ? '✓ ' : '') + 'photo ' + (i+1);
-    photoProgress.appendChild(chip);
-  }
+async function deleteBlob(k){
+  try{ const d = await openDB(); await new Promise((r, j) => {
+    const t = d.transaction(STORE, 'readwrite'); t.objectStore(STORE).delete(k);
+    t.oncomplete = r; t.onerror = () => j(t.error);
+  }); }catch(e){}
 }
 
 /* ============ PHOTOS ============ */
@@ -532,23 +515,15 @@ function showPhoto(i, blob){
   img.src = URL.createObjectURL(blob); img.hidden = false; ph.hidden = true;
 }
 SLOTS.forEach((el, i) => {
-  const pick = () => {
-    if (fullySealed) return;
-    pendingSlot = i; photoInput.value = ''; photoInput.click();
-  };
+  const pick = () => { pendingSlot = i; photoInput.value = ''; photoInput.click(); };
   el.addEventListener('click', pick);
   el.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();} });
 });
 photoInput.addEventListener('change', () => {
   const f = photoInput.files && photoInput.files[0];
   if(!f || pendingSlot===null) return;
-  const i = pendingSlot;
-  showPhoto(i, f); putBlob('photo-'+i, f);
-  photosDone[i] = true;
-  buildPhotoProgress();
-  hearts(12);
-  pendingSlot = null;
-  checkSeal();
+  showPhoto(pendingSlot, f); putBlob('photo-'+pendingSlot, f);
+  hearts(12); pendingSlot = null;
 });
 
 /* ============ VIDEO ============ */
@@ -563,23 +538,18 @@ function applyVideo(blob){
   document.body.classList.add('has-video');
   videoStatus.textContent = 'Video added ♡';
   videoPick.textContent = 'Change video';
-  videoDone = true;
   const tryPlay = () => { const p = bgVideo.play(); if(p && p.catch) p.catch(()=>{}); };
   tryPlay();
   bgVideo.addEventListener('loadeddata', tryPlay, { once:true });
   bgVideo.addEventListener('canplay', tryPlay, { once:true });
-  checkSeal();
 }
-videoPick.addEventListener('click', () => {
-  if (fullySealed) return;
-  videoInput.value=''; videoInput.click();
-});
+videoPick.addEventListener('click', () => { videoInput.value=''; videoInput.click(); });
 videoInput.addEventListener('change', () => {
   const f = videoInput.files && videoInput.files[0]; if(!f) return;
   applyVideo(f); putBlob('video', f); hearts(10);
 });
 
-/* ============ MUSIC ============ */
+/* ============ MUSIC — MP3 upload, plays forever, locks on upload ============ */
 const audio        = document.getElementById('bgMusic');
 const musicPlayer  = document.getElementById('musicPlayer');
 const musicLabel   = document.getElementById('musicLabel');
@@ -591,55 +561,98 @@ const musicConfirm = document.getElementById('musicConfirm');
 const musicName    = document.getElementById('musicName');
 const musicYes     = document.getElementById('musicYes');
 const musicNo      = document.getElementById('musicNo');
+const decorBtn     = document.getElementById('decorBtn');
+const panel        = document.getElementById('panel');
 
+const LOCK_KEY = 'ourSongIsLocked';
 let songReady = false;
+let musicLocked = false;
 let pendingSongFile = null;
 
+/* Play the loaded song. Safe to call any time. */
 function playSong(){
   if (!songReady || !audio.src) return;
   audio.muted = false;
   const p = audio.play();
-  if (p && p.catch) p.catch(() => {});
-  updateMusicUI();
+  if (p && p.catch) p.catch(() => { /* blocked — will retry on next gesture */ });
 }
+
+/* Load a blob into the audio element (no .load() — just set src) */
 function loadSong(blob){
   audio.src = URL.createObjectURL(blob);
   audio.loop = true;
   audio.muted = false;
   songReady = true;
-  musicDone = true;
   updateMusicUI();
 }
+
 function updateMusicUI(){
   musicPlayer.classList.remove('blocked','playing');
-  if (!songReady){ musicLabel.textContent = 'add our song ♡'; return; }
+  if (!songReady){
+    musicLabel.textContent = 'add our song ♡';
+    return;
+  }
   const playing = !audio.paused;
   musicPlayer.classList.toggle('playing', playing);
   musicPlayer.classList.toggle('blocked', !playing);
   musicLabel.textContent = playing ? 'our song ♡' : 'tap ♡ to play our song';
 }
+
 audio.addEventListener('play',    updateMusicUI);
 audio.addEventListener('playing', updateMusicUI);
 audio.addEventListener('pause',   updateMusicUI);
 audio.addEventListener('ended',   () => playSong());
-audio.addEventListener('error',   () => { if (songReady) musicLabel.textContent = 'song could not play'; });
+audio.addEventListener('error',   () => {
+  if (songReady) musicLabel.textContent = 'song could not play';
+});
 
-musicPlayer.addEventListener('click', () => { if (songReady && audio.paused) playSong(); });
+/* badge is clickable only when blocked — never a stop button */
+musicPlayer.addEventListener('click', () => {
+  if (songReady && audio.paused) playSong();
+});
 musicPlayer.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (audio.paused) playSong(); }
 });
+
+/* Any gesture anywhere starts the song if blocked */
 ['pointerdown','touchstart','keydown','click'].forEach(ev => {
-  document.addEventListener(ev, () => { if (songReady && audio.paused) playSong(); }, { passive: true });
+  document.addEventListener(ev, () => {
+    if (songReady && audio.paused) playSong();
+  }, { passive: true });
 });
 
-/* music upload flow */
+/* ---------- panel open/close ---------- */
+function openPanel(){ panel.hidden = false; decorBtn.setAttribute('aria-expanded','true'); }
+function closePanel(){ panel.hidden = true; decorBtn.setAttribute('aria-expanded','false'); }
+decorBtn.addEventListener('click', () => panel.hidden ? openPanel() : closePanel());
+document.getElementById('panelClose').addEventListener('click', closePanel);
+document.addEventListener('click', e => {
+  if (panel.hidden) return;
+  if (!panel.contains(e.target) && !decorBtn.contains(e.target)) closePanel();
+});
+
+/* ---------- LOCK EVERYTHING after music upload ---------- */
+function lockEverything(){
+  musicLocked = true;
+  musicPick.disabled = true;
+  musicPick.textContent = 'Sealed ♡';
+  musicPick.style.opacity = '.55';
+  musicPick.style.cursor = 'not-allowed';
+  musicStatus.textContent = 'Saved forever ♡';
+  lockNote.textContent = 'Everything is sealed forever now. ♡';
+  lockNote.classList.remove('lock');
+  document.body.classList.add('all-done');   // hides decor button + panel via CSS
+}
+
+/* ---------- music upload flow ---------- */
 musicPick.addEventListener('click', () => {
-  if (fullySealed) return;
+  if (musicLocked) return;
   musicInput.value = '';
   musicInput.click();
 });
+
 musicInput.addEventListener('change', () => {
-  if (fullySealed) return;
+  if (musicLocked) return;
   const f = musicInput.files && musicInput.files[0];
   if (!f) return;
   pendingSongFile = f;
@@ -647,75 +660,33 @@ musicInput.addEventListener('change', () => {
   musicConfirm.hidden = false;
   musicPick.hidden = true;
 });
+
 musicNo.addEventListener('click', () => {
   pendingSongFile = null;
   musicInput.value = '';
   musicConfirm.hidden = true;
   musicPick.hidden = false;
 });
+
+/* The Yes click IS the user gesture — set src and play synchronously */
 musicYes.addEventListener('click', () => {
   if (!pendingSongFile) return;
   const file = pendingSongFile;
   pendingSongFile = null;
 
-  loadSong(file);
-  playSong();
+  loadSong(file);       // set src synchronously
+  playSong();           // play synchronously inside the click
 
-  musicStatus.textContent = 'Saved forever ♡';
-  lockNote.textContent = 'The Decorate button will hide once photos, video, and song are all added. ♡';
+  lockEverything();
   musicConfirm.hidden = true;
-  musicPick.hidden = false;
-  musicPick.disabled = true;
-  musicPick.textContent = 'Sealed ♡';
-  musicPick.style.opacity = '.55';
-  musicPick.style.cursor = 'not-allowed';
 
-  putBlob('music', file);
+  putBlob('music', file);                         // save in background
   try { localStorage.setItem(LOCK_KEY, 'yes'); } catch(e){}
 
   hearts(20);
-  checkSeal();
 });
 
-/* ============ panel open/close ============ */
-const panel = document.getElementById('panel');
-const decorBtn = document.getElementById('decorBtn');
-function openPanel(){ panel.hidden = false; decorBtn.setAttribute('aria-expanded','true'); }
-function closePanel(){ panel.hidden = true; decorBtn.setAttribute('aria-expanded','false'); }
-decorBtn.addEventListener('click', () => {
-  if (fullySealed) return;
-  panel.hidden ? openPanel() : closePanel();
-});
-document.getElementById('panelClose').addEventListener('click', closePanel);
-document.addEventListener('click', e => {
-  if (panel.hidden) return;
-  if (!panel.contains(e.target) && !decorBtn.contains(e.target)) closePanel();
-});
-
-/* ============ THE SEAL CHECK ============
-   Hide Decorate button + panel ONLY when:
-   - all 4 photos are added
-   - video is added
-   - music is added (and locked)                    */
-function checkSeal(){
-  const allPhotos = photosDone.every(Boolean);
-  if (!allPhotos || !videoDone || !musicDone) return;
-
-  fullySealed = true;
-  document.body.classList.add('all-done');
-
-  // disable photo taps forever
-  SLOTS.forEach(el => {
-    el.style.cursor = 'default';
-    el.removeAttribute('tabindex');
-    el.removeAttribute('role');
-    const badge = el.querySelector('.badge');
-    if (badge) badge.remove();
-  });
-  hearts(30);
-}
-
-/* ============ envelope / letter ============ */
+/* ============ ENVELOPE / LETTER ============ */
 function openSurprise(){
   document.getElementById('openEnvelope').classList.add('open');
   playSong();
@@ -737,7 +708,7 @@ const letterEnv = document.getElementById('letterEnvelope');
 letterEnv.addEventListener('click', openLetter);
 letterEnv.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter();} });
 
-/* ============ hearts ============ */
+/* ============ HEARTS ============ */
 function hearts(count = 28){
   const layer = document.getElementById('hearts');
   for (let i = 0; i < count; i++){
@@ -752,40 +723,34 @@ function hearts(count = 28){
   }
 }
 
-/* ============ boot ============ */
+/* ============ BOOT ============ */
 (async function boot(){
   // photos
   for (let i = 0; i < SLOTS.length; i++){
     const b = await getBlob('photo-'+i);
-    if (b){ showPhoto(i, b); photosDone[i] = true; }
+    if (b) showPhoto(i, b);
   }
-  buildPhotoProgress();
-
   // video
   const v = await getBlob('video');
   if (v) applyVideo(v);
 
-  // music
+  // music — if stored, load + lock + hide decorate
   const m = await getBlob('music');
   let flag = false;
   try { flag = localStorage.getItem(LOCK_KEY) === 'yes'; } catch(e){}
 
   if (m){
     loadSong(m);
-    musicStatus.textContent = 'Saved forever ♡';
-    musicPick.disabled = true;
-    musicPick.textContent = 'Sealed ♡';
-    musicPick.style.opacity = '.55';
-    musicPick.style.cursor = 'not-allowed';
+    lockEverything();
     playSong();
-    setTimeout(playSong, 600);
-    setTimeout(playSong, 1600);
+    setTimeout(playSong, 500);
+    setTimeout(playSong, 1500);
   } else if (flag){
+    // lock exists but song gone → unlock so they can re-upload
     try { localStorage.removeItem(LOCK_KEY); } catch(e){}
     musicStatus.textContent = 'Please add your song again';
   }
 
-  setTimeout(checkSeal, 100);
   setTimeout(() => hearts(10), 900);
 })();
 </script>
