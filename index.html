@@ -7,101 +7,25 @@
 <title>For Bhumika ♡</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Manrope:wght@400;500;600;700&display=swap');
-
-:root{
-  --wine:#5b1122; --wine2:#7d1e33; --cream:#fff5e6; --paper:#fdf1de;
-  --ink:#4a1d25; --pink:#f0b3ba; --rose:#d98a9b; --gold:#f3cf9a;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;background:#2c0712}
-body{
-  margin:0;background:transparent;color:var(--ink);
-  font-family:'Manrope',sans-serif;overflow-x:clip;
-  --fabric-a:.97; --check-a:.90;
-}
-body.has-video{--fabric-a:.10; --check-a:.50}
-
-/* hide decorate + panel ONLY when everything is uploaded */
-body.all-done .decor-btn,
-body.all-done .panel { display:none !important; }
-
-body.has-video .fabric{
-  background-image:
-    radial-gradient(ellipse at 18% 15%,rgba(168,66,92,.12) 0,transparent 42%),
-    radial-gradient(ellipse at 85% 82%,rgba(28,4,10,.22) 0,transparent 48%),
-    repeating-linear-gradient(7deg,rgba(255,255,255,.02) 0 1px,transparent 1px 6px),
-    repeating-linear-gradient(97deg,rgba(0,0,0,.04) 0 2px,transparent 2px 8px);
-}
-
+:root{--wine:#5b1122;--wine2:#7d1e33;--cream:#fff5e6;--paper:#fdf1de;--ink:#4a1d25;--pink:#f0b3ba;--rose:#d98a9b;--gold:#f3cf9a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:#2c0712}
+body{margin:0;background:transparent;color:var(--ink);font-family:'Manrope',sans-serif;overflow-x:clip;--fabric-a:.97;--check-a:.90}
+body.has-video{--fabric-a:.10;--check-a:.50}
+body.has-video .fabric{background-image:radial-gradient(ellipse at 18% 15%,rgba(168,66,92,.12) 0,transparent 42%),radial-gradient(ellipse at 85% 82%,rgba(28,4,10,.22) 0,transparent 48%),repeating-linear-gradient(7deg,rgba(255,255,255,.02) 0 1px,transparent 1px 6px),repeating-linear-gradient(97deg,rgba(0,0,0,.04) 0 2px,transparent 2px 8px)}
 .bgmedia{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#2c0712}
-.bgmedia video{
-  width:100%;height:100%;object-fit:cover;display:none;
-  filter:saturate(1.1) contrast(1.04) brightness(1.08);
-}
+.bgmedia video{width:100%;height:100%;object-fit:cover;display:none;filter:saturate(1.1) contrast(1.04) brightness(1.08)}
 body.has-video .bgmedia video{display:block}
-.bgveil{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 30%, rgba(91,17,34,.10), rgba(20,4,9,.42) 92%);
-}
-body.has-video .bgveil{
-  background:
-    radial-gradient(ellipse at 50% 30%, rgba(91,17,34,0), rgba(20,4,9,.10) 92%),
-    linear-gradient(180deg, rgba(20,4,9,.03), rgba(20,4,9,.10));
-}
+.bgveil{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(91,17,34,.10),rgba(20,4,9,.42) 92%)}
+body.has-video .bgveil{background:radial-gradient(ellipse at 50% 30%,rgba(91,17,34,0),rgba(20,4,9,.10) 92%),linear-gradient(180deg,rgba(20,4,9,.03),rgba(20,4,9,.10))}
 .page{position:relative;z-index:1}
-
-.fabric{
-  background-color:rgba(91,17,34,var(--fabric-a));
-  background-image:
-    radial-gradient(ellipse at 18% 15%,rgba(168,66,92,.45) 0,transparent 42%),
-    radial-gradient(ellipse at 85% 82%,rgba(28,4,10,.55) 0,transparent 48%),
-    repeating-linear-gradient(7deg,rgba(255,255,255,.03) 0 1px,transparent 1px 6px),
-    repeating-linear-gradient(97deg,rgba(0,0,0,.08) 0 2px,transparent 2px 8px);
-  transition:background-color .5s;
-}
-.check{
-  background-color:rgba(253,240,224,var(--check-a));
-  background-image:
-    linear-gradient(45deg,rgba(196,80,105,.22) 25%,transparent 25%),
-    linear-gradient(-45deg,rgba(196,80,105,.22) 25%,transparent 25%),
-    linear-gradient(45deg,transparent 75%,rgba(196,80,105,.22) 75%),
-    linear-gradient(-45deg,transparent 75%,rgba(196,80,105,.22) 75%);
-  background-size:34px 34px;
-  background-position:0 0,0 17px,17px -17px,-17px 0;
-  transition:background-color .5s;
-}
+.fabric{background-color:rgba(91,17,34,var(--fabric-a));background-image:radial-gradient(ellipse at 18% 15%,rgba(168,66,92,.45) 0,transparent 42%),radial-gradient(ellipse at 85% 82%,rgba(28,4,10,.55) 0,transparent 48%),repeating-linear-gradient(7deg,rgba(255,255,255,.03) 0 1px,transparent 1px 6px),repeating-linear-gradient(97deg,rgba(0,0,0,.08) 0 2px,transparent 2px 8px);transition:background-color .5s}
+.check{background-color:rgba(253,240,224,var(--check-a));background-image:linear-gradient(45deg,rgba(196,80,105,.22) 25%,transparent 25%),linear-gradient(-45deg,rgba(196,80,105,.22) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,rgba(196,80,105,.22) 75%),linear-gradient(-45deg,transparent 75%,rgba(196,80,105,.22) 75%);background-size:34px 34px;background-position:0 0,0 17px,17px -17px,-17px 0;transition:background-color .5s}
 section{position:relative;padding:88px 6vw;scroll-margin-top:78px}
-.script{font-family:'Great Vibes',cursive;font-weight:400}
-button{font:inherit;cursor:pointer}
-
-body.has-video .hero h1,
-body.has-video .hero .sub,
-body.has-video .hero .eyebrow,
-body.has-video .hero .hint,
-body.has-video .section-title h2,
-body.has-video .section-title p,
-body.has-video .intro h2,
-body.has-video .intro p,
-body.has-video .intro .dots,
-body.has-video .final h2,
-body.has-video .final p,
-body.has-video .signature,
-body.has-video .upload-note{
-  text-shadow:0 2px 20px rgba(15,2,6,.95), 0 1px 4px rgba(15,2,6,.9), 0 0 44px rgba(15,2,6,.6);
-}
-body.has-video .section-title.on-light h2,
-body.has-video .section-title.on-light p{
-  text-shadow:0 1px 16px rgba(253,240,224,.95), 0 0 6px rgba(253,240,224,.75);
-}
-
+.script{font-family:'Great Vibes',cursive;font-weight:400}button{font:inherit;cursor:pointer}
+body.has-video .hero h1,body.has-video .hero .sub,body.has-video .hero .eyebrow,body.has-video .hero .hint,body.has-video .section-title h2,body.has-video .section-title p,body.has-video .intro h2,body.has-video .intro p,body.has-video .intro .dots,body.has-video .final h2,body.has-video .final p,body.has-video .signature{text-shadow:0 2px 20px rgba(15,2,6,.95),0 1px 4px rgba(15,2,6,.9),0 0 44px rgba(15,2,6,.6)}
+body.has-video .section-title.on-light h2,body.has-video .section-title.on-light p{text-shadow:0 1px 16px rgba(253,240,224,.95),0 0 6px rgba(253,240,224,.75)}
 .hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:30px;overflow:hidden}
-.hero-card{
-  position:relative;max-width:720px;width:100%;padding:48px 26px 56px;
-  border:1px solid rgba(255,255,255,.28);border-radius:22px;
-  background:rgba(255,245,230,.10);
-  box-shadow:0 30px 90px rgba(20,3,8,.55),inset 0 1px 0 rgba(255,255,255,.25);
-  backdrop-filter:blur(8px);color:var(--cream);
-}
+.hero-card{position:relative;max-width:720px;width:100%;padding:48px 26px 56px;border:1px solid rgba(255,255,255,.28);border-radius:22px;background:rgba(255,245,230,.10);box-shadow:0 30px 90px rgba(20,3,8,.55),inset 0 1px 0 rgba(255,255,255,.25);backdrop-filter:blur(8px);color:var(--cream)}
 .hero .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#f7cdc4;margin:0}
 .hero h1{font-size:clamp(3.2rem,10vw,7rem);line-height:.95;margin:14px 0 10px;color:#fff2e3;text-shadow:0 12px 40px rgba(0,0,0,.4)}
 .hero .sub{font-size:1.02rem;color:#f7d9d1;margin:0 0 6px}
@@ -112,148 +36,68 @@ body.has-video .section-title.on-light p{
 .flap{position:absolute;left:0;top:0;width:0;height:0;border-left:95px solid transparent;border-right:95px solid transparent;border-top:75px solid #efd1b2;transform-origin:top;transition:transform .7s;z-index:3}
 .seal{position:absolute;z-index:4;left:76px;top:48px;width:38px;height:38px;border-radius:50%;background:#a1273d;color:#ffe8d5;display:grid;place-items:center;font-size:20px;box-shadow:0 3px 10px rgba(89,32,43,.45)}
 .open .flap{transform:rotateX(180deg)}
-.primary,.pill{
-  border:0;border-radius:30px;padding:14px 26px;background:#f8dccb;color:#6c1b2d;
-  font-weight:700;box-shadow:0 8px 22px rgba(27,5,10,.35);transition:.2s
-}
+.primary,.pill{border:0;border-radius:30px;padding:14px 26px;background:#f8dccb;color:#6c1b2d;font-weight:700;box-shadow:0 8px 22px rgba(27,5,10,.35);transition:.2s}
 .primary:hover,.pill:hover{transform:translateY(-3px);background:#fff}
-.pill.small{padding:9px 16px;font-size:.82rem}
 .hint{font-size:.8rem;letter-spacing:.06em;color:#f0c9c0;margin-top:16px}
-
 .ornament{position:absolute;color:#f7c9b8;font-size:30px;opacity:.85;animation:float 5s ease-in-out infinite}
-.o1{left:8%;top:18%}.o2{right:9%;top:23%;animation-delay:1s}
-.o3{left:15%;bottom:12%;animation-delay:2s}.o4{right:14%;bottom:14%;animation-delay:1.5s}
+.o1{left:8%;top:18%}.o2{right:9%;top:23%;animation-delay:1s}.o3{left:15%;bottom:12%;animation-delay:2s}.o4{right:14%;bottom:14%;animation-delay:1.5s}
 @keyframes float{50%{transform:translateY(-15px) rotate(10deg)}}
-
 .nav{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:12px;background:rgba(61,12,25,.70);backdrop-filter:blur(12px)}
 .nav a{color:#ffe9dc;text-decoration:none;font-size:.78rem;padding:9px 14px;border:1px solid rgba(255,255,255,.24);border-radius:30px;transition:.2s}
 .nav a:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
-
 .section-title{text-align:center;margin:0 auto 40px}
 .section-title h2{font:clamp(2.8rem,6vw,4.9rem) 'Great Vibes',cursive;margin:0;color:var(--cream)}
 .section-title p{color:#f3d0c6;letter-spacing:.16em;text-transform:uppercase;font-size:.72rem;margin:6px 0 0}
-.section-title.on-light h2{color:#64182a}
-.section-title.on-light p{color:#96505f}
-
+.section-title.on-light h2{color:#64182a}.section-title.on-light p{color:#96505f}
 .intro{max-width:860px;margin:auto;text-align:center;color:var(--cream);padding:56px 18px}
 .intro h2{font:clamp(3rem,7vw,5rem) 'Great Vibes',cursive;margin:0 0 14px}
 .intro p{line-height:1.9;color:#fbe8de;font-size:1.02rem}
 .intro .dots{font-size:2rem;color:#f4c5b6;margin-top:18px}
-
-.paper{
-  background:var(--paper);
-  background-image:repeating-linear-gradient(0deg,transparent 0 27px,rgba(155,109,90,.10) 28px 29px);
-  box-shadow:0 16px 38px rgba(23,4,10,.35);border:1px solid #fff8e7;position:relative;border-radius:8px;
-}
-
+.paper{background:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 27px,rgba(155,109,90,.10) 28px 29px);box-shadow:0 16px 38px rgba(23,4,10,.35);border:1px solid #fff8e7;position:relative;border-radius:8px}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;max-width:1060px;margin:auto}
-.polaroid{
-  position:relative;background:#fffaf0;padding:12px 12px 42px;border-radius:4px;
-  box-shadow:0 14px 28px rgba(28,5,11,.4);transform:rotate(var(--r));transition:.3s;
-  cursor:pointer;outline:none;margin:0;
-}
-.polaroid:hover,.polaroid:focus-visible{transform:rotate(0) translateY(-8px) scale(1.03);z-index:2;box-shadow:0 22px 40px rgba(28,5,11,.5)}
+.polaroid{position:relative;background:#fffaf0;padding:12px 12px 42px;border-radius:4px;box-shadow:0 14px 28px rgba(28,5,11,.4);transform:rotate(var(--r));transition:.3s;margin:0}
+.polaroid:hover{transform:rotate(0) translateY(-8px) scale(1.03);z-index:2;box-shadow:0 22px 40px rgba(28,5,11,.5)}
 .polaroid::before{content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-3deg);width:74px;height:22px;background:rgba(255,255,255,.5);border:1px dashed rgba(150,80,95,.35);border-radius:2px}
 .polaroid .frame{position:relative;height:210px;border-radius:2px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#e9b9ba,#a34a60)}
 .polaroid img{width:100%;height:100%;object-fit:cover;display:block}
-.polaroid .ph{color:#fff4ea;font-family:'Great Vibes',cursive;font-size:26px;line-height:1.25;text-align:center;padding:10px;text-shadow:0 2px 10px rgba(0,0,0,.25)}
+.polaroid .ph{color:#fff4ea;font-family:'Great Vibes',cursive;font-size:24px;line-height:1.25;text-align:center;padding:10px;text-shadow:0 2px 10px rgba(0,0,0,.25)}
 .polaroid figcaption{display:block;text-align:center;font-family:'Great Vibes',cursive;font-size:23px;margin-top:12px;color:#62303a}
-.polaroid .badge{position:absolute;right:16px;bottom:52px;background:rgba(91,17,34,.85);color:#ffe7d9;font-size:.65rem;letter-spacing:.08em;padding:4px 9px;border-radius:20px;opacity:0;transition:.25s}
-.polaroid:hover .badge{opacity:1}
-.upload-note{text-align:center;color:#f7dcd2;margin:26px auto 0;font-size:.85rem}
-
 .letter-area{max-width:780px;margin:auto;padding:38px 24px 48px;text-align:center}
 .letter-area h2{font:52px 'Great Vibes',cursive;margin:0 0 8px;color:#64182a}
 .letter-area .lead{color:#8a4a57;margin:0 0 22px}
-.letter-envelope{
-  margin:16px auto 26px;width:min(290px,80vw);height:190px;background:#eccfae;position:relative;
-  box-shadow:0 14px 28px rgba(55,17,27,.35);cursor:pointer;border-radius:4px;transition:.3s;
-}
+.letter-envelope{margin:16px auto 26px;width:min(290px,80vw);height:190px;background:#eccfae;position:relative;box-shadow:0 14px 28px rgba(55,17,27,.35);cursor:pointer;border-radius:4px;transition:.3s}
 .letter-envelope:hover{transform:translateY(-6px) rotate(-1.5deg)}
 .letter-envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49%,#d6b492 50%),linear-gradient(35deg,transparent 49%,#f5ddc0 50%);border-radius:4px}
 .letter-envelope:after{content:"♥";position:absolute;left:calc(50% - 23px);top:66px;border-radius:50%;background:#a1273d;color:#ffe9d9;width:46px;height:46px;display:grid;place-items:center;font-size:22px;box-shadow:0 4px 12px rgba(90,30,45,.4)}
-.letter{
-  display:none;text-align:left;max-width:640px;margin:28px auto 0;padding:38px 32px;
-  color:#5a2832;line-height:1.95;font-family:Georgia,'Times New Roman',serif;white-space:pre-line;font-size:1.02rem;
-}
+.letter{display:none;text-align:left;max-width:640px;margin:28px auto 0;padding:38px 32px;color:#5a2832;line-height:1.95;font-family:Georgia,'Times New Roman',serif;white-space:pre-line;font-size:1.02rem}
 .letter.show{display:block;animation:rise .8s ease}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-
 .timeline{max-width:780px;margin:auto;display:grid;gap:20px}
 .memory{padding:26px 30px;border-left:5px solid #b8304b;border-radius:8px}
 .memory h3{font:31px 'Great Vibes',cursive;margin:0 0 6px;color:#6b1c2d}
 .memory p{margin:0;line-height:1.8}
 .memory .date{display:inline-block;font-family:'Manrope',sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#a1273d;margin-bottom:6px;font-weight:700}
-
 .adore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;max-width:1000px;margin:auto}
 .adore{padding:26px 24px;text-align:center;border-radius:10px}
 .adore span{font-size:1.8rem;color:#c0405c;display:block;margin-bottom:6px}
 .adore h3{font:29px 'Great Vibes',cursive;margin:0 0 8px;color:#6b1c2d}
 .adore p{margin:0;line-height:1.7;color:#6d3a45;font-size:.95rem}
-
 .final{text-align:center;color:var(--cream);min-height:72vh;display:grid;place-items:center;overflow:hidden}
 .final h2{font:clamp(3.2rem,8vw,6rem) 'Great Vibes',cursive;margin:0}
 .final p{max-width:660px;line-height:1.95;color:#f9e3d9;margin:20px auto}
 .signature{font:44px 'Great Vibes',cursive;color:#f8cabb;margin-top:10px}
-
-.music{
-  position:fixed;right:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:9px;
-  background:rgba(253,241,222,.94);color:#64182a;border:1px solid #fff;border-radius:40px;padding:8px 15px;
-  box-shadow:0 10px 28px rgba(22,3,10,.45);font-size:.78rem;
-  pointer-events:none;transition:.3s;
-}
+.music{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:9px;background:rgba(253,241,222,.94);color:#64182a;border:1px solid #fff;border-radius:40px;padding:8px 15px;box-shadow:0 10px 28px rgba(22,3,10,.45);font-size:.78rem;pointer-events:none;transition:.3s}
 .music.blocked{pointer-events:auto;cursor:pointer;animation:pulseBadge 1.8s ease-in-out infinite}
 @keyframes pulseBadge{0%,100%{box-shadow:0 10px 28px rgba(22,3,10,.45)}50%{box-shadow:0 10px 40px rgba(200,85,106,.75)}}
 .vinyl{width:32px;height:32px;border-radius:50%;background:repeating-radial-gradient(circle,#1c1719 0 2px,#393034 3px 4px);display:grid;place-items:center;animation:spin 4s linear infinite;animation-play-state:paused}
 .vinyl:after{content:"";width:8px;height:8px;border-radius:50%;background:#c8556a}
 .music.playing .vinyl{animation-play-state:running}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-.decor-btn{
-  position:fixed;left:18px;bottom:18px;z-index:45;border:0;border-radius:40px;padding:12px 18px;
-  background:#f8dccb;color:#6c1b2d;font-weight:700;font-size:.82rem;
-  box-shadow:0 10px 28px rgba(22,3,10,.45);transition:.2s;
-}
-.decor-btn:hover{transform:translateY(-3px);background:#fff}
-.panel{
-  position:fixed;left:18px;bottom:74px;z-index:46;width:min(340px,88vw);
-  background:#fdf1de;border:1px solid #fff;border-radius:18px;padding:18px;
-  box-shadow:0 22px 50px rgba(22,3,10,.55);animation:pop .25s ease;
-}
-@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
-.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.panel-head h3{font:27px 'Great Vibes',cursive;margin:0;color:#64182a}
-.panel-head button{border:0;background:transparent;font-size:1rem;color:#8a4a57}
-.p-block{padding:12px 0;border-top:1px dashed rgba(150,80,95,.28)}
-.p-label{display:block;font-size:.82rem;font-weight:700;color:#6b1c2d;margin-bottom:8px}
-.p-hint{font-size:.75rem;color:#8a5b66;margin:8px 0 0;line-height:1.5}
-.p-status{font-size:.75rem;color:#8a5b66;margin-left:8px}
-.p-hint.lock{color:#a1273d;font-weight:600}
-.p-confirm{margin-top:12px;padding:12px;border-radius:12px;background:#f6e2cc;border:1px solid #e6c9a8}
-.p-confirm p{margin:0 0 10px;font-size:.8rem;color:#6b1c2d;line-height:1.5}
-.p-confirm .row{display:flex;gap:8px;flex-wrap:wrap}
-.p-confirm .name{font-weight:700;word-break:break-all}
-.p-progress{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.p-chip{font-size:.68rem;padding:3px 8px;border-radius:20px;background:#eedac4;color:#8a5b66}
-.p-chip.done{background:#d8ecd8;color:#2e6b2e}
-
 #hearts{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
 .heart{position:absolute;bottom:-30px;animation:heartUp 4.4s ease-in forwards;font-size:22px}
 @keyframes heartUp{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
-
 footer{text-align:center;padding:28px;color:#f0d5cb;font-size:.75rem;background:rgba(58,11,23,.35)}
-
-@media(max-width:600px){
-  section{padding:68px 20px}
-  .hero-card{padding:38px 18px}
-  .nav{gap:5px}
-  .nav a{font-size:.68rem;padding:8px 10px}
-  .polaroid .frame{height:180px}
-  .letter{padding:26px 20px}
-  .music{right:10px;bottom:10px;font-size:.7rem;padding:7px 11px}
-  .decor-btn{left:10px;bottom:10px;padding:10px 14px}
-  .panel{left:10px;bottom:62px}
-}
+@media(max-width:600px){section{padding:68px 20px}.hero-card{padding:38px 18px}.nav{gap:5px}.nav a{font-size:.68rem;padding:8px 10px}.polaroid .frame{height:180px}.letter{padding:26px 20px}.music{right:10px;bottom:10px;font-size:.7rem;padding:7px 11px}}
 </style>
 </head>
 <body>
@@ -264,7 +108,6 @@ footer{text-align:center;padding:28px;color:#f0d5cb;font-size:.75rem;background:
 </div>
 
 <div class="page">
-
   <section class="hero fabric" id="home">
     <span class="ornament o1">✿</span><span class="ornament o2">♡</span>
     <span class="ornament o3">❀</span><span class="ornament o4">✿</span>
@@ -281,11 +124,8 @@ footer{text-align:center;padding:28px;color:#f0d5cb;font-size:.75rem;background:
   </section>
 
   <nav class="nav" aria-label="Main navigation">
-    <a href="#scrapbook">The scrapbook</a>
-    <a href="#memories">Our moments</a>
-    <a href="#letter">A letter</a>
-    <a href="#story">Our story</a>
-    <a href="#adore">Little things</a>
+    <a href="#scrapbook">The scrapbook</a><a href="#memories">Our moments</a>
+    <a href="#letter">A letter</a><a href="#story">Our story</a><a href="#adore">Little things</a>
   </nav>
 
   <section class="fabric" id="scrapbook">
@@ -301,28 +141,23 @@ footer{text-align:center;padding:28px;color:#f0d5cb;font-size:.75rem;background:
   <section class="fabric" id="memories">
     <div class="section-title"><h2>Little Moments</h2><p>our scrapbook of memories</p></div>
     <div class="gallery">
-      <figure class="polaroid" style="--r:-3deg" data-slot="0" tabindex="0" role="button" aria-label="Add photo one">
-        <div class="frame"><img alt="The day we met" hidden><span class="ph">tap to add<br>a photo ♡</span></div>
-        <span class="badge">change ♡</span>
+      <figure class="polaroid" style="--r:-3deg">
+        <div class="frame"><img data-photo="0" alt="The day we met" src="" style="display:none"><span class="ph">♡</span></div>
         <figcaption>The day we met 🌷</figcaption>
       </figure>
-      <figure class="polaroid" style="--r:2deg" data-slot="1" tabindex="0" role="button" aria-label="Add photo two">
-        <div class="frame"><img alt="Just us two" hidden><span class="ph">tap to add<br>a photo ♡</span></div>
-        <span class="badge">change ♡</span>
+      <figure class="polaroid" style="--r:2deg">
+        <div class="frame"><img data-photo="1" alt="Just us two" src="" style="display:none"><span class="ph">♡</span></div>
         <figcaption>Just us two ♡</figcaption>
       </figure>
-      <figure class="polaroid" style="--r:-2deg" data-slot="2" tabindex="0" role="button" aria-label="Add photo three">
-        <div class="frame"><img alt="One special evening" hidden><span class="ph">tap to add<br>a photo ♡</span></div>
-        <span class="badge">change ♡</span>
+      <figure class="polaroid" style="--r:-2deg">
+        <div class="frame"><img data-photo="2" alt="One special evening" src="" style="display:none"><span class="ph">♡</span></div>
         <figcaption>One special evening</figcaption>
       </figure>
-      <figure class="polaroid" style="--r:3deg" data-slot="3" tabindex="0" role="button" aria-label="Add photo four">
-        <div class="frame"><img alt="My favourite kind of day" hidden><span class="ph">tap to add<br>a photo ♡</span></div>
-        <span class="badge">change ♡</span>
+      <figure class="polaroid" style="--r:3deg">
+        <div class="frame"><img data-photo="3" alt="My favourite kind of day" src="" style="display:none"><span class="ph">♡</span></div>
         <figcaption>My favourite kind of day</figcaption>
       </figure>
     </div>
-    <p class="upload-note">Tap any frame to add your own picture — they're saved in this browser ♡</p>
   </section>
 
   <section class="check" id="letter">
@@ -351,34 +186,26 @@ Someone who thinks you're pretty special. ♡</div>
   <section class="fabric" id="story">
     <div class="section-title"><h2>Our Little Story</h2><p>every lovely story starts somewhere</p></div>
     <div class="timeline">
-      <article class="memory paper">
-        <span class="date">10 November 2026</span>
-        <h3>The Day I Met You</h3>
+      <article class="memory paper"><span class="date">10 November 2026</span><h3>The Day I Met You</h3>
         <p>I met you on the tenth of November, and I don't think I realised at the time how much that
            one ordinary day would end up meaning to me. Nothing about it looked special from the outside —
            but I remember walking away with your name stuck in my head and a smile I couldn't explain.
            Some people just arrive quietly and somehow take up a whole corner of your heart.</p>
       </article>
-      <article class="memory paper">
-        <span class="date">15 November 2026</span>
-        <h3>Just The Two Of Us</h3>
+      <article class="memory paper"><span class="date">15 November 2026</span><h3>Just The Two Of Us</h3>
         <p>Five days later, it was just you and me — no crowd, no noise, nothing to hide behind.
            And honestly? It was the happiest I've felt in a long while. The conversation, the small
            silences, the way the hours slipped past without either of us noticing. I remember thinking,
            quietly, that I didn't want that day to end. That's the day I stopped wondering and started hoping.</p>
       </article>
-      <article class="memory paper">
-        <span class="date">Since then</span>
-        <h3>I Miss You Already</h3>
+      <article class="memory paper"><span class="date">Since then</span><h3>I Miss You Already</h3>
         <p>It's funny how quickly someone can become a habit. Now I catch myself thinking about you
            at the strangest hours — seeing something small and wondering if you'd laugh at it, hearing
            a song and thinking of you. I miss you, Bhumika. Not in a dramatic way, just in that quiet
            way where a day feels a little incomplete without your voice in it. I'd love to meet you
            again, whenever you'd like.</p>
       </article>
-      <article class="memory paper">
-        <span class="date">And after</span>
-        <h3>More Chapters To Come</h3>
+      <article class="memory paper"><span class="date">And after</span><h3>More Chapters To Come</h3>
         <p>Here's to more evenings that end too soon, more conversations that go nowhere and everywhere,
            and every beautiful moment we haven't lived yet. I've kept a seat for you in my story,
            Bhumika — I hope you'll stay for a few more chapters. ♡</p>
@@ -389,22 +216,10 @@ Someone who thinks you're pretty special. ♡</div>
   <section class="check" id="adore">
     <div class="section-title on-light"><h2>Little Things I Adore</h2><p>a very incomplete list</p></div>
     <div class="adore-grid">
-      <div class="adore paper">
-        <span>✿</span><h3>The way you laugh</h3>
-        <p>It's the sound my whole day quietly waits for.</p>
-      </div>
-      <div class="adore paper">
-        <span>♡</span><h3>The way you say my name</h3>
-        <p>It's such a small thing, but it makes my whole day feel warmer.</p>
-      </div>
-      <div class="adore paper">
-        <span>❀</span><h3>Your little messages</h3>
-        <p>Even a tiny "hey" from you makes my phone feel like a gift.</p>
-      </div>
-      <div class="adore paper">
-        <span>🌷</span><h3>Just... you, Bhumika</h3>
-        <p>No list could ever really hold it all, honestly. ♡</p>
-      </div>
+      <div class="adore paper"><span>✿</span><h3>The way you laugh</h3><p>It's the sound my whole day quietly waits for.</p></div>
+      <div class="adore paper"><span>♡</span><h3>The way you say my name</h3><p>It's such a small thing, but it makes my whole day feel warmer.</p></div>
+      <div class="adore paper"><span>❀</span><h3>Your little messages</h3><p>Even a tiny "hey" from you makes my phone feel like a gift.</p></div>
+      <div class="adore paper"><span>🌷</span><h3>Just... you, Bhumika</h3><p>No list could ever really hold it all, honestly. ♡</p></div>
     </div>
   </section>
 
@@ -424,297 +239,92 @@ Someone who thinks you're pretty special. ♡</div>
 
 <div id="hearts"></div>
 
-<button class="decor-btn" id="decorBtn" aria-expanded="false">♡ Decorate</button>
-
-<aside class="panel" id="panel" hidden aria-label="Add photos, video and music">
-  <div class="panel-head">
-    <h3>Make it ours</h3>
-    <button id="panelClose" aria-label="Close panel">✕</button>
-  </div>
-
-  <div class="p-block">
-    <span class="p-label">📷 Our photos</span>
-    <p class="p-hint" style="margin:0">Tap any photo frame on the page to add or change a picture. Photos save in this browser.</p>
-    <div class="p-progress" id="photoProgress"></div>
-  </div>
-
-  <div class="p-block">
-    <span class="p-label">🎞️ Background video</span>
-    <button class="pill small" id="videoPick">Upload video</button>
-    <span class="p-status" id="videoStatus">No video yet</span>
-    <p class="p-hint">Plays silently on loop behind everything, 90% visible. ♡</p>
-  </div>
-
-  <div class="p-block">
-    <span class="p-label">🎵 Our song</span>
-    <button class="pill small" id="musicPick">Upload song</button>
-    <span class="p-status" id="musicStatus">No song yet</span>
-
-    <div class="p-confirm" id="musicConfirm" hidden>
-      <p>Add <span class="name" id="musicName">this song</span> as our song?<br>
-         It will loop forever in the background and <strong>cannot be changed after</strong>. ♡</p>
-      <div class="row">
-        <button class="pill small" id="musicYes">Yes, add it ♡</button>
-        <button class="pill small" id="musicNo">Cancel</button>
-      </div>
-    </div>
-
-    <p class="p-hint lock" id="lockNote">The Decorate button stays until you've added photos, a video, and a song. After that, everything seals forever. ♡</p>
-  </div>
-</aside>
-
-<input type="file" id="photoInput" accept="image/*" hidden>
-<input type="file" id="videoInput" accept="video/*" hidden>
-<input type="file" id="musicInput" accept="audio/*" hidden>
-
-<div class="music" id="musicPlayer">
+<div class="music" id="musicPlayer" role="button" tabindex="0" aria-label="Play our song">
   <div class="vinyl"></div>
-  <span id="musicLabel">add our song ♡</span>
+  <span id="musicLabel">loading ♡</span>
 </div>
+
 <audio id="bgMusic" loop preload="auto"></audio>
 
 <script>
-/* ============ IndexedDB ============ */
-const DB_NAME = 'ourLittlePlace', STORE = 'keepsakes';
-let dbPromise = null;
-function openDB(){
-  if (dbPromise) return dbPromise;
-  dbPromise = new Promise((res, rej) => {
-    let req; try { req = indexedDB.open(DB_NAME, 1); } catch(e){ rej(e); return; }
-    req.onupgradeneeded = () => { const d = req.result; if(!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE); };
-    req.onsuccess = () => res(req.result);
-    req.onerror   = () => rej(req.error);
-  });
-  return dbPromise;
-}
-async function putBlob(k, b){
-  try{ const d = await openDB(); await new Promise((r, j) => {
-    const t = d.transaction(STORE, 'readwrite'); t.objectStore(STORE).put(b, k);
-    t.oncomplete = r; t.onerror = () => j(t.error);
-  }); }catch(e){ console.warn('save failed', e); }
-}
-async function getBlob(k){
-  try{ const d = await openDB(); return await new Promise((r, j) => {
-    const t = d.transaction(STORE, 'readonly'); const q = t.objectStore(STORE).get(k);
-    q.onsuccess = () => r(q.result || null); q.onerror = () => j(q.error);
-  }); }catch(e){ return null; }
-}
+/* ================================================================
+   MEDIA IS EMBEDDED HERE — paste your base64 strings below.
+   The tool at the bottom of this message generates this block
+   for you automatically — you don't have to do it by hand.
+   ================================================================ */
+const EMBEDDED = {
+  photos: [
+    "", // photo 1 — data:image/jpeg;base64,...
+    "", // photo 2
+    "", // photo 3
+    "", // photo 4
+  ],
+  video: "", // data:video/mp4;base64,...
+  song:  "", // data:audio/mpeg;base64,...
+};
 
-/* ============ state ============ */
-const photosDone = [false, false, false, false];
-let videoDone  = false;
-let musicDone  = false;
-let fullySealed = false;
-
-const LOCK_KEY = 'ourSongIsLocked';
-
-/* ============ progress chips in panel ============ */
-const photoProgress = document.getElementById('photoProgress');
-function buildPhotoProgress(){
-  photoProgress.innerHTML = '';
-  for (let i = 0; i < 4; i++){
-    const chip = document.createElement('span');
-    chip.className = 'p-chip' + (photosDone[i] ? ' done' : '');
-    chip.textContent = (photosDone[i] ? '✓ ' : '') + 'photo ' + (i+1);
-    photoProgress.appendChild(chip);
-  }
-}
-
-/* ============ PHOTOS ============ */
-const SLOTS = [...document.querySelectorAll('.polaroid')];
-const photoInput = document.getElementById('photoInput');
-let pendingSlot = null;
-
-function showPhoto(i, blob){
-  const el = SLOTS[i]; if(!el) return;
-  const img = el.querySelector('img'), ph = el.querySelector('.ph');
-  img.src = URL.createObjectURL(blob); img.hidden = false; ph.hidden = true;
-}
-SLOTS.forEach((el, i) => {
-  const pick = () => {
-    if (fullySealed) return;
-    pendingSlot = i; photoInput.value = ''; photoInput.click();
-  };
-  el.addEventListener('click', pick);
-  el.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();} });
-});
-photoInput.addEventListener('change', () => {
-  const f = photoInput.files && photoInput.files[0];
-  if(!f || pendingSlot===null) return;
-  const i = pendingSlot;
-  showPhoto(i, f); putBlob('photo-'+i, f);
-  photosDone[i] = true;
-  buildPhotoProgress();
-  hearts(12);
-  pendingSlot = null;
-  checkSeal();
+/* ---------- apply embedded photos ---------- */
+EMBEDDED.photos.forEach((src, i) => {
+  if (!src) return;
+  const img = document.querySelector(`img[data-photo="${i}"]`);
+  if (!img) return;
+  img.src = src;
+  img.style.display = 'block';
+  const ph = img.parentElement.querySelector('.ph');
+  if (ph) ph.style.display = 'none';
 });
 
-/* ============ VIDEO ============ */
+/* ---------- apply embedded video ---------- */
 const bgVideo = document.getElementById('bgVideo');
-const videoInput = document.getElementById('videoInput');
-const videoStatus = document.getElementById('videoStatus');
-const videoPick = document.getElementById('videoPick');
-
-function applyVideo(blob){
-  bgVideo.src = URL.createObjectURL(blob);
+if (EMBEDDED.video){
+  bgVideo.src = EMBEDDED.video;
   bgVideo.muted = true; bgVideo.loop = true; bgVideo.playsInline = true;
   document.body.classList.add('has-video');
-  videoStatus.textContent = 'Video added ♡';
-  videoPick.textContent = 'Change video';
-  videoDone = true;
-  const tryPlay = () => { const p = bgVideo.play(); if(p && p.catch) p.catch(()=>{}); };
+  const tryPlay = () => { const p = bgVideo.play(); if (p && p.catch) p.catch(()=>{}); };
   tryPlay();
   bgVideo.addEventListener('loadeddata', tryPlay, { once:true });
   bgVideo.addEventListener('canplay', tryPlay, { once:true });
-  checkSeal();
 }
-videoPick.addEventListener('click', () => {
-  if (fullySealed) return;
-  videoInput.value=''; videoInput.click();
-});
-videoInput.addEventListener('change', () => {
-  const f = videoInput.files && videoInput.files[0]; if(!f) return;
-  applyVideo(f); putBlob('video', f); hearts(10);
-});
 
-/* ============ MUSIC ============ */
-const audio        = document.getElementById('bgMusic');
-const musicPlayer  = document.getElementById('musicPlayer');
-const musicLabel   = document.getElementById('musicLabel');
-const musicInput   = document.getElementById('musicInput');
-const musicPick    = document.getElementById('musicPick');
-const musicStatus  = document.getElementById('musicStatus');
-const lockNote     = document.getElementById('lockNote');
-const musicConfirm = document.getElementById('musicConfirm');
-const musicName    = document.getElementById('musicName');
-const musicYes     = document.getElementById('musicYes');
-const musicNo      = document.getElementById('musicNo');
-
+/* ---------- apply embedded song ---------- */
+const audio      = document.getElementById('bgMusic');
+const player     = document.getElementById('musicPlayer');
+const musicLabel = document.getElementById('musicLabel');
 let songReady = false;
-let pendingSongFile = null;
 
+if (EMBEDDED.song){
+  audio.src = EMBEDDED.song;
+  audio.loop = true;
+  songReady = true;
+}
 function playSong(){
-  if (!songReady || !audio.src) return;
+  if (!songReady) return;
   audio.muted = false;
   const p = audio.play();
   if (p && p.catch) p.catch(() => {});
   updateMusicUI();
 }
-function loadSong(blob){
-  audio.src = URL.createObjectURL(blob);
-  audio.loop = true;
-  audio.muted = false;
-  songReady = true;
-  musicDone = true;
-  updateMusicUI();
-}
 function updateMusicUI(){
-  musicPlayer.classList.remove('blocked','playing');
-  if (!songReady){ musicLabel.textContent = 'add our song ♡'; return; }
+  player.classList.remove('blocked','playing');
+  if (!songReady){ musicLabel.textContent = 'loading ♡'; return; }
   const playing = !audio.paused;
-  musicPlayer.classList.toggle('playing', playing);
-  musicPlayer.classList.toggle('blocked', !playing);
-  musicLabel.textContent = playing ? 'our song ♡' : 'tap ♡ to play our song';
+  player.classList.toggle('playing', playing);
+  player.classList.toggle('blocked', !playing);
+  musicLabel.textContent = playing ? 'our song ♡' : 'tap ♡ to hear our song';
 }
-audio.addEventListener('play',    updateMusicUI);
+audio.addEventListener('play', updateMusicUI);
 audio.addEventListener('playing', updateMusicUI);
-audio.addEventListener('pause',   updateMusicUI);
-audio.addEventListener('ended',   () => playSong());
-audio.addEventListener('error',   () => { if (songReady) musicLabel.textContent = 'song could not play'; });
+audio.addEventListener('pause', updateMusicUI);
+audio.addEventListener('ended', () => playSong());
+audio.addEventListener('error', () => { musicLabel.textContent = 'song could not play'; });
 
-musicPlayer.addEventListener('click', () => { if (songReady && audio.paused) playSong(); });
-musicPlayer.addEventListener('keydown', e => {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (audio.paused) playSong(); }
-});
+player.addEventListener('click', () => { if (songReady && audio.paused) playSong(); });
+player.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); if (audio.paused) playSong(); } });
 ['pointerdown','touchstart','keydown','click'].forEach(ev => {
   document.addEventListener(ev, () => { if (songReady && audio.paused) playSong(); }, { passive: true });
 });
 
-/* music upload flow */
-musicPick.addEventListener('click', () => {
-  if (fullySealed) return;
-  musicInput.value = '';
-  musicInput.click();
-});
-musicInput.addEventListener('change', () => {
-  if (fullySealed) return;
-  const f = musicInput.files && musicInput.files[0];
-  if (!f) return;
-  pendingSongFile = f;
-  musicName.textContent = f.name;
-  musicConfirm.hidden = false;
-  musicPick.hidden = true;
-});
-musicNo.addEventListener('click', () => {
-  pendingSongFile = null;
-  musicInput.value = '';
-  musicConfirm.hidden = true;
-  musicPick.hidden = false;
-});
-musicYes.addEventListener('click', () => {
-  if (!pendingSongFile) return;
-  const file = pendingSongFile;
-  pendingSongFile = null;
-
-  loadSong(file);
-  playSong();
-
-  musicStatus.textContent = 'Saved forever ♡';
-  lockNote.textContent = 'The Decorate button will hide once photos, video, and song are all added. ♡';
-  musicConfirm.hidden = true;
-  musicPick.hidden = false;
-  musicPick.disabled = true;
-  musicPick.textContent = 'Sealed ♡';
-  musicPick.style.opacity = '.55';
-  musicPick.style.cursor = 'not-allowed';
-
-  putBlob('music', file);
-  try { localStorage.setItem(LOCK_KEY, 'yes'); } catch(e){}
-
-  hearts(20);
-  checkSeal();
-});
-
-/* ============ panel open/close ============ */
-const panel = document.getElementById('panel');
-const decorBtn = document.getElementById('decorBtn');
-function openPanel(){ panel.hidden = false; decorBtn.setAttribute('aria-expanded','true'); }
-function closePanel(){ panel.hidden = true; decorBtn.setAttribute('aria-expanded','false'); }
-decorBtn.addEventListener('click', () => {
-  if (fullySealed) return;
-  panel.hidden ? openPanel() : closePanel();
-});
-document.getElementById('panelClose').addEventListener('click', closePanel);
-document.addEventListener('click', e => {
-  if (panel.hidden) return;
-  if (!panel.contains(e.target) && !decorBtn.contains(e.target)) closePanel();
-});
-
-/* ============ THE SEAL CHECK ============
-   Hide Decorate button + panel ONLY when:
-   - all 4 photos are added
-   - video is added
-   - music is added (and locked)                    */
-function checkSeal(){
-  const allPhotos = photosDone.every(Boolean);
-  if (!allPhotos || !videoDone || !musicDone) return;
-
-  fullySealed = true;
-  document.body.classList.add('all-done');
-
-  // disable photo taps forever
-  SLOTS.forEach(el => {
-    el.style.cursor = 'default';
-    el.removeAttribute('tabindex');
-    el.removeAttribute('role');
-    const badge = el.querySelector('.badge');
-    if (badge) badge.remove();
-  });
-  hearts(30);
-}
-
-/* ============ envelope / letter ============ */
+/* ---------- envelope / letter ---------- */
 function openSurprise(){
   document.getElementById('openEnvelope').classList.add('open');
   playSong();
@@ -736,7 +346,7 @@ const letterEnv = document.getElementById('letterEnvelope');
 letterEnv.addEventListener('click', openLetter);
 letterEnv.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter();} });
 
-/* ============ hearts ============ */
+/* ---------- hearts ---------- */
 function hearts(count = 28){
   const layer = document.getElementById('hearts');
   for (let i = 0; i < count; i++){
@@ -751,42 +361,8 @@ function hearts(count = 28){
   }
 }
 
-/* ============ boot ============ */
-(async function boot(){
-  // photos
-  for (let i = 0; i < SLOTS.length; i++){
-    const b = await getBlob('photo-'+i);
-    if (b){ showPhoto(i, b); photosDone[i] = true; }
-  }
-  buildPhotoProgress();
-
-  // video
-  const v = await getBlob('video');
-  if (v) applyVideo(v);
-
-  // music
-  const m = await getBlob('music');
-  let flag = false;
-  try { flag = localStorage.getItem(LOCK_KEY) === 'yes'; } catch(e){}
-
-  if (m){
-    loadSong(m);
-    musicStatus.textContent = 'Saved forever ♡';
-    musicPick.disabled = true;
-    musicPick.textContent = 'Sealed ♡';
-    musicPick.style.opacity = '.55';
-    musicPick.style.cursor = 'not-allowed';
-    playSong();
-    setTimeout(playSong, 600);
-    setTimeout(playSong, 1600);
-  } else if (flag){
-    try { localStorage.removeItem(LOCK_KEY); } catch(e){}
-    musicStatus.textContent = 'Please add your song again';
-  }
-
-  setTimeout(checkSeal, 100);
-  setTimeout(() => hearts(10), 900);
-})();
+setTimeout(playSong, 400);
+setTimeout(() => { updateMusicUI(); hearts(10); }, 900);
 </script>
 </body>
 </html>
