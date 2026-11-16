@@ -94,25 +94,33 @@ body.has-video .hero h1,body.has-video .hero .sub,body.has-video .hero .eyebrow,
 footer{text-align:center;padding:28px;color:#f0d5cb;font-size:.75rem;background:rgba(58,11,23,.35)}
 .decor-btn{position:fixed;left:18px;bottom:18px;z-index:45;border:0;border-radius:40px;padding:12px 18px;background:#f8dccb;color:#6c1b2d;font-weight:700;font-size:.82rem;box-shadow:0 10px 28px rgba(22,3,10,.45);transition:.2s}
 .decor-btn:hover{transform:translateY(-3px);background:#fff}
-.panel{position:fixed;left:18px;bottom:74px;z-index:46;width:min(340px,88vw);background:#fdf1de;border:1px solid #fff;border-radius:18px;padding:18px;box-shadow:0 22px 50px rgba(22,3,10,.55)}
+.panel{position:fixed;left:18px;bottom:74px;z-index:46;width:min(340px,88vw);background:#fdf1de;border:1px solid #fff;border-radius:18px;padding:18px;box-shadow:0 22px 50px rgba(22,3,10,.55);max-height:70vh;overflow-y:auto}
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .panel-head h3{font:27px 'Great Vibes',cursive;margin:0;color:#64182a}
 .panel-head button{border:0;background:transparent;font-size:1rem;color:#8a4a57}
 .p-block{padding:12px 0;border-top:1px dashed rgba(150,80,95,.28)}
 .p-label{display:block;font-size:.82rem;font-weight:700;color:#6b1c2d;margin-bottom:8px}
 .p-hint{font-size:.75rem;color:#8a5b66;margin:8px 0 0;line-height:1.5}
-.p-status{font-size:.75rem;color:#8a5b66;margin-left:8px}
+.p-status{font-size:.75rem;color:#8a5b66;margin-left:8px;display:inline-block}
 .p-progress{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
 .p-chip{font-size:.68rem;padding:3px 8px;border-radius:20px;background:#eedac4;color:#8a5b66}
 .p-chip.done{background:#d8ecd8;color:#2e6b2e}
-.pill{border:0;border-radius:30px;padding:9px 16px;background:#f8dccb;color:#6c1b2d;font-weight:700;font-size:.82rem;transition:.2s}
+.pill{border:0;border-radius:30px;padding:10px 18px;background:#f8dccb;color:#6c1b2d;font-weight:700;font-size:.85rem;transition:.2s}
 .pill:hover{background:#fff}
 .pill.green{background:#b8e0b8;color:#1f4a1f}
-.pill.green:hover{background:#fff}
 #doneBlock{display:none;background:#f0f6e8;border-radius:12px;padding:14px;margin-top:12px;text-align:center}
 #doneBlock h4{margin:0 0 8px;font-size:.92rem;color:#2e6b2e}
 #doneBlock p{margin:0 0 10px;font-size:.78rem;color:#4a5a3a;line-height:1.4}
-#doneBlock button{font-size:.88rem;padding:11px 20px}
+/* file inputs placed off-screen — NOT display:none, so click() works on iOS */
+.file-input{
+  position:absolute !important;
+  left:-9999px !important;
+  top:-9999px !important;
+  width:1px !important;
+  height:1px !important;
+  opacity:0 !important;
+  overflow:hidden !important;
+}
 @media(max-width:600px){section{padding:68px 20px}.hero-card{padding:38px 18px}.nav a{font-size:.68rem;padding:8px 10px}.polaroid .frame{height:180px}.letter{padding:26px 20px}.music{right:10px;bottom:10px;font-size:.7rem;padding:7px 11px}.decor-btn{left:10px;bottom:10px;padding:10px 14px}.panel{left:10px;bottom:62px}}
 </style>
 </head>
@@ -153,10 +161,10 @@ footer{text-align:center;padding:28px;color:#f0d5cb;font-size:.75rem;background:
   <section class="fabric" id="memories">
     <div class="section-title"><h2>Little Moments</h2><p>our scrapbook of memories</p></div>
     <div class="gallery">
-      <figure class="polaroid" style="--r:-3deg" data-slot="0"><div class="frame"><img data-photo="0" alt="The day we met" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>The day we met 🌷</figcaption></figure>
-      <figure class="polaroid" style="--r:2deg" data-slot="1"><div class="frame"><img data-photo="1" alt="Just us two" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>Just us two ♡</figcaption></figure>
-      <figure class="polaroid" style="--r:-2deg" data-slot="2"><div class="frame"><img data-photo="2" alt="One special evening" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>One special evening</figcaption></figure>
-      <figure class="polaroid" style="--r:3deg" data-slot="3"><div class="frame"><img data-photo="3" alt="My favourite kind of day" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>My favourite kind of day</figcaption></figure>
+      <figure class="polaroid" style="--r:-3deg" data-slot="0"><div class="frame"><img data-photo="0" alt="" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>The day we met 🌷</figcaption></figure>
+      <figure class="polaroid" style="--r:2deg" data-slot="1"><div class="frame"><img data-photo="1" alt="" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>Just us two ♡</figcaption></figure>
+      <figure class="polaroid" style="--r:-2deg" data-slot="2"><div class="frame"><img data-photo="2" alt="" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>One special evening</figcaption></figure>
+      <figure class="polaroid" style="--r:3deg" data-slot="3"><div class="frame"><img data-photo="3" alt="" style="display:none"><span class="ph">tap to add<br>a photo ♡</span></div><figcaption>My favourite kind of day</figcaption></figure>
     </div>
   </section>
 
@@ -216,12 +224,12 @@ Someone who thinks you're pretty special. ♡</div>
 
 <div id="hearts"></div>
 
-<button class="decor-btn" id="decorBtn">♡ Decorate</button>
+<button class="decor-btn" id="decorBtn" type="button">♡ Decorate</button>
 
 <aside class="panel" id="panel" hidden>
   <div class="panel-head">
     <h3>Make it ours</h3>
-    <button id="panelClose">✕</button>
+    <button id="panelClose" type="button">✕</button>
   </div>
 
   <div class="p-block">
@@ -232,13 +240,13 @@ Someone who thinks you're pretty special. ♡</div>
 
   <div class="p-block">
     <span class="p-label">🎞️ Background video</span>
-    <button class="pill" id="videoPick">Upload video</button>
+    <label class="pill" for="videoInput" style="display:inline-block">Upload video</label>
     <span class="p-status" id="videoStatus">None yet</span>
   </div>
 
   <div class="p-block">
     <span class="p-label">🎵 Our song</span>
-    <button class="pill" id="musicPick">Upload song</button>
+    <label class="pill" for="musicInput" id="musicPickLabel" style="display:inline-block">Upload song</label>
     <span class="p-status" id="musicStatus">None yet</span>
     <p class="p-hint">Once added, the song can't be changed. ♡</p>
   </div>
@@ -246,13 +254,14 @@ Someone who thinks you're pretty special. ♡</div>
   <div id="doneBlock">
     <h4>✓ Everything is ready</h4>
     <p>Download your shareable file below, then send it to Bhumika.</p>
-    <button class="pill green" id="downloadBtn">↓ Download shareable file</button>
+    <button class="pill green" id="downloadBtn" type="button">↓ Download shareable file</button>
   </div>
 </aside>
 
-<input type="file" id="photoInput" accept="image/*" hidden>
-<input type="file" id="videoInput" accept="video/*" hidden>
-<input type="file" id="musicInput" accept="audio/*" hidden>
+<!-- file inputs: off-screen (NOT display:none) so click() works on iOS -->
+<input type="file" id="photoInput" accept="image/*" class="file-input">
+<input type="file" id="videoInput" accept="video/*" class="file-input">
+<input type="file" id="musicInput" accept="audio/*" class="file-input">
 
 <div class="music" id="musicPlayer">
   <div class="vinyl"></div>
@@ -260,7 +269,6 @@ Someone who thinks you're pretty special. ♡</div>
 </div>
 <audio id="bgMusic" loop preload="auto"></audio>
 
-<!-- RUNTIME FOR SHAREABLE VERSION -->
 <script id="runtimeScript" type="text/plain">
 const audio=document.getElementById('bgMusic');
 const bgVideo=document.getElementById('bgVideo');
@@ -279,11 +287,9 @@ tryVideo();
 function openSurprise(){document.getElementById('openEnvelope').classList.add('open');playSong();hearts(16);setTimeout(()=>{document.getElementById('scrapbook').scrollIntoView({behavior:'smooth'});},550);}
 document.getElementById('openButton').addEventListener('click',openSurprise);
 const envEl=document.getElementById('openEnvelope');envEl.addEventListener('click',openSurprise);
-envEl.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSurprise();}});
 function openLetter(){document.getElementById('letterText').classList.add('show');document.getElementById('letterButton').textContent='A little note for you ♡';hearts(14);}
 document.getElementById('letterButton').addEventListener('click',openLetter);
-const letterEnv=document.getElementById('letterEnvelope');letterEnv.addEventListener('click',openLetter);
-letterEnv.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter();}});
+document.getElementById('letterEnvelope').addEventListener('click',openLetter);
 function hearts(c=28){const l=document.getElementById('hearts');const g=['♥','♡','✿','🌸','💗'];for(let i=0;i<c;i++){const h=document.createElement('span');h.className='heart';h.textContent=g[Math.floor(Math.random()*5)];h.style.left=Math.random()*100+'%';h.style.animationDelay=Math.random()*1.2+'s';h.style.fontSize=16+Math.random()*22+'px';l.appendChild(h);setTimeout(()=>h.remove(),5600);}}
 setTimeout(playSong,400);setTimeout(()=>{updateMusicUI();hearts(10);},900);
 </script>
@@ -292,7 +298,7 @@ setTimeout(playSong,400);setTimeout(()=>{updateMusicUI();hearts(10);},900);
 /* === IndexedDB === */
 const DB_NAME='bhumika-build',STORE='files';let dbP=null;
 function openDB(){if(dbP)return dbP;dbP=new Promise((res,rej)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains(STORE))d.createObjectStore(STORE);};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});return dbP;}
-async function putFile(k,b){const d=await openDB();return new Promise((r,j)=>{const t=d.transaction(STORE,'readwrite');t.objectStore(STORE).put(b,k);t.oncomplete=r;t.onerror=()=>j(t.error);});}
+async function putFile(k,b){try{const d=await openDB();return new Promise((r,j)=>{const t=d.transaction(STORE,'readwrite');t.objectStore(STORE).put(b,k);t.oncomplete=r;t.onerror=()=>j(t.error);});}catch(e){console.warn('save fail',e);}}
 async function getFile(k){try{const d=await openDB();return new Promise((r,j)=>{const t=d.transaction(STORE,'readonly');const q=t.objectStore(STORE).get(k);q.onsuccess=()=>r(q.result||null);q.onerror=()=>j(q.error);});}catch(e){return null;}}
 function blobToBase64(b){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=rej;fr.readAsDataURL(b);});}
 
@@ -309,17 +315,26 @@ const decorBtn=document.getElementById('decorBtn');
 const photoProgress=document.getElementById('photoProgress');
 const doneBlock=document.getElementById('doneBlock');
 
-/* === live runtime for builder page (same behaviour as shared) === */
+/* helper to safely open file picker */
+function openFile(input){
+  try{ input.value=''; }catch(e){}
+  if(typeof input.showPicker === 'function'){
+    try { input.showPicker(); return; } catch(e){ /* fall through */ }
+  }
+  input.click();
+}
+
+/* live runtime */
 function playSong(){if(!audio.src)return;audio.muted=false;const p=audio.play();if(p&&p.catch)p.catch(()=>{});updateMusicUI();}
 function updateMusicUI(){if(!audio.src){musicLabel.textContent='add our song ♡';player.classList.remove('playing','blocked');return;}const playing=!audio.paused;player.classList.toggle('playing',playing);player.classList.toggle('blocked',!playing);musicLabel.textContent=playing?'our song ♡':'tap ♡ to hear our song';}
 audio.addEventListener('play',updateMusicUI);audio.addEventListener('playing',updateMusicUI);audio.addEventListener('pause',updateMusicUI);audio.addEventListener('ended',playSong);
-player.addEventListener('click',()=>{if(audio.paused)playSong();});
+player.addEventListener('click',()=>{if(audio.paused&&audio.src)playSong();});
 ['pointerdown','touchstart','keydown','click'].forEach(ev=>{document.addEventListener(ev,()=>{if(audio.paused&&audio.src)playSong();},{passive:true});});
 function tryVideo(){const p=bgVideo.play();if(p&&p.catch)p.catch(()=>{});}
 bgVideo.addEventListener('loadeddata',()=>{document.body.classList.add('has-video');tryVideo();});
 bgVideo.addEventListener('canplay',()=>{document.body.classList.add('has-video');tryVideo();});
 
-/* === photo progress === */
+/* progress */
 function updateProgress(){
   photoProgress.innerHTML='';
   for(let i=0;i<4;i++){
@@ -328,62 +343,91 @@ function updateProgress(){
     c.textContent=(photos[i]?'✓ ':'')+'photo '+(i+1);
     photoProgress.appendChild(c);
   }
-  if(photos.every(Boolean)&&videoFile&&songFile){doneBlock.style.display='block';}
-  else{doneBlock.style.display='none';}
+  doneBlock.style.display = (photos.every(Boolean)&&videoFile&&songFile) ? 'block' : 'none';
 }
 
-/* === photos === */
+/* photos */
 const photoInput=document.getElementById('photoInput');
 let pendingSlot=null;
 function showPhoto(i,blob){const img=document.querySelector('img[data-photo="'+i+'"]');if(!img)return;img.src=URL.createObjectURL(blob);img.style.display='block';const ph=img.parentElement.querySelector('.ph');if(ph)ph.style.display='none';}
-[...document.querySelectorAll('.polaroid')].forEach((el,i)=>{el.addEventListener('click',()=>{pendingSlot=i;photoInput.value='';photoInput.click();});});
-photoInput.addEventListener('change',()=>{const f=photoInput.files&&photoInput.files[0];if(!f||pendingSlot===null)return;const i=pendingSlot;photos[i]=f;showPhoto(i,f);putFile('photo-'+i,f);updateProgress();pendingSlot=null;});
+document.querySelectorAll('.polaroid').forEach((el,i)=>{
+  el.addEventListener('click',e=>{
+    e.preventDefault();
+    pendingSlot=i;
+    openFile(photoInput);
+  });
+});
+photoInput.addEventListener('change',()=>{
+  const f=photoInput.files&&photoInput.files[0];
+  if(!f||pendingSlot===null){pendingSlot=null;return;}
+  const i=pendingSlot; pendingSlot=null;
+  photos[i]=f;
+  showPhoto(i,f);
+  putFile('photo-'+i,f);
+  updateProgress();
+});
 
-/* === video === */
+/* video */
 const videoInput=document.getElementById('videoInput');
-document.getElementById('videoPick').addEventListener('click',()=>{videoInput.value='';videoInput.click();});
-videoInput.addEventListener('change',async()=>{const f=videoInput.files&&videoInput.files[0];if(!f)return;videoFile=f;bgVideo.src=URL.createObjectURL(f);bgVideo.muted=true;bgVideo.loop=true;bgVideo.playsInline=true;document.body.classList.add('has-video');tryVideo();document.getElementById('videoStatus').textContent='✓ added';document.getElementById('videoPick').textContent='Change video';putFile('video',f);updateProgress();});
+videoInput.addEventListener('change',()=>{
+  const f=videoInput.files&&videoInput.files[0];
+  if(!f)return;
+  videoFile=f;
+  bgVideo.src=URL.createObjectURL(f);
+  bgVideo.muted=true;bgVideo.loop=true;bgVideo.playsInline=true;
+  document.body.classList.add('has-video');
+  tryVideo();
+  document.getElementById('videoStatus').textContent='✓ added';
+  putFile('video',f);
+  updateProgress();
+});
 
-/* === music === */
+/* music */
 const musicInput=document.getElementById('musicInput');
-document.getElementById('musicPick').addEventListener('click',()=>{musicInput.value='';musicInput.click();});
-musicInput.addEventListener('change',async()=>{const f=musicInput.files&&musicInput.files[0];if(!f)return;songFile=f;audio.src=URL.createObjectURL(f);audio.loop=true;playSong();document.getElementById('musicStatus').textContent='✓ added';document.getElementById('musicPick').disabled=true;document.getElementById('musicPick').textContent='Locked ♡';document.getElementById('musicPick').style.opacity='.55';putFile('song',f);updateProgress();});
+musicInput.addEventListener('change',()=>{
+  const f=musicInput.files&&musicInput.files[0];
+  if(!f)return;
+  songFile=f;
+  audio.src=URL.createObjectURL(f);
+  audio.loop=true;
+  playSong();
+  document.getElementById('musicStatus').textContent='✓ added';
+  const lbl=document.getElementById('musicPickLabel');
+  lbl.style.opacity='.55';
+  lbl.style.pointerEvents='none';
+  lbl.textContent='Locked ♡';
+  putFile('song',f);
+  updateProgress();
+});
 
-/* === panel === */
+/* panel */
 function openPanel(){panel.hidden=false;decorBtn.setAttribute('aria-expanded','true');}
 function closePanel(){panel.hidden=true;decorBtn.setAttribute('aria-expanded','false');}
-decorBtn.addEventListener('click',()=>panel.hidden?openPanel():closePanel());
+decorBtn.addEventListener('click',()=>{ if(panel.hidden) openPanel(); else closePanel(); });
 document.getElementById('panelClose').addEventListener('click',closePanel);
 
-/* === envelope / letter === */
+/* envelope / letter */
 function openSurprise(){document.getElementById('openEnvelope').classList.add('open');playSong();hearts(16);setTimeout(()=>{document.getElementById('scrapbook').scrollIntoView({behavior:'smooth'});},550);}
 document.getElementById('openButton').addEventListener('click',openSurprise);
-const envEl=document.getElementById('openEnvelope');envEl.addEventListener('click',openSurprise);
+document.getElementById('openEnvelope').addEventListener('click',openSurprise);
 function openLetter(){document.getElementById('letterText').classList.add('show');document.getElementById('letterButton').textContent='A little note for you ♡';hearts(14);}
 document.getElementById('letterButton').addEventListener('click',openLetter);
 document.getElementById('letterEnvelope').addEventListener('click',openLetter);
 
-/* === hearts === */
+/* hearts */
 function hearts(c=28){const l=document.getElementById('hearts');const g=['♥','♡','✿','🌸','💗'];for(let i=0;i<c;i++){const h=document.createElement('span');h.className='heart';h.textContent=g[Math.floor(Math.random()*5)];h.style.left=Math.random()*100+'%';h.style.animationDelay=Math.random()*1.2+'s';h.style.fontSize=16+Math.random()*22+'px';l.appendChild(h);setTimeout(()=>h.remove(),5600);}}
 
-/* === DOWNLOAD SHAREABLE FILE === */
-document.getElementById('downloadBtn').addEventListener('click',async()=>{
-  const btn=document.getElementById('downloadBtn');
+/* download */
+document.getElementById('downloadBtn').addEventListener('click',async function(){
+  const btn=this;
   btn.disabled=true;btn.textContent='Building file...';
   try{
-    // 1. Clone the page
     const clone=document.documentElement.cloneNode(true);
-
-    // 2. Remove decorate UI, builder scripts
     clone.querySelector('#decorBtn')?.remove();
     clone.querySelector('#panel')?.remove();
     clone.querySelectorAll('input[type=file]').forEach(e=>e.remove());
-    clone.querySelectorAll('script').forEach(s=>{
-      if(s.id==='runtimeScript')return;
-      s.remove();
-    });
+    clone.querySelectorAll('script').forEach(s=>{ if(s.id!=='runtimeScript') s.remove(); });
 
-    // 3. Convert media to base64 and set into clone
     for(let i=0;i<4;i++){
       if(!photos[i])continue;
       const b64=await blobToBase64(photos[i]);
@@ -392,23 +436,18 @@ document.getElementById('downloadBtn').addEventListener('click',async()=>{
     }
     if(videoFile){
       const b64=await blobToBase64(videoFile);
-      const v=clone.querySelector('#bgVideo');
-      if(v)v.src=b64;
+      const v=clone.querySelector('#bgVideo'); if(v)v.src=b64;
       clone.body.classList.add('has-video');
     }
     if(songFile){
       const b64=await blobToBase64(songFile);
-      const a=clone.querySelector('#bgMusic');
-      if(a)a.src=b64;
+      const a=clone.querySelector('#bgMusic'); if(a)a.src=b64;
     }
 
-    // 4. Add runtime script inside clone
-    const runtimeText=document.getElementById('runtimeScript').textContent;
-    const runtimeEl=document.createElement('script');
-    runtimeEl.textContent=runtimeText;
-    clone.querySelector('body').appendChild(runtimeEl);
+    const rt=document.createElement('script');
+    rt.textContent=document.getElementById('runtimeScript').textContent;
+    clone.querySelector('body').appendChild(rt);
 
-    // 5. Serialize and download
     const html='<!DOCTYPE html>\n'+clone.outerHTML;
     const blob=new Blob([html],{type:'text/html'});
     const url=URL.createObjectURL(blob);
@@ -420,23 +459,27 @@ document.getElementById('downloadBtn').addEventListener('click',async()=>{
     btn.textContent='✓ Downloaded!';
     setTimeout(()=>{btn.disabled=false;btn.textContent='↓ Download shareable file';},2500);
   }catch(e){
-    alert('Something went wrong: '+e.message);
+    alert('Download failed: '+e.message);
     btn.disabled=false;btn.textContent='↓ Download shareable file';
   }
 });
 
-/* === BOOT — restore from IndexedDB === */
+/* boot */
 (async()=>{
   for(let i=0;i<4;i++){
     const f=await getFile('photo-'+i);
     if(f){photos[i]=f;showPhoto(i,f);}
   }
   const v=await getFile('video');
-  if(v){videoFile=v;bgVideo.src=URL.createObjectURL(v);bgVideo.muted=true;bgVideo.loop=true;bgVideo.playsInline=true;document.body.classList.add('has-video');tryVideo();document.getElementById('videoStatus').textContent='✓ added';document.getElementById('videoPick').textContent='Change video';}
+  if(v){videoFile=v;bgVideo.src=URL.createObjectURL(v);bgVideo.muted=true;bgVideo.loop=true;bgVideo.playsInline=true;document.body.classList.add('has-video');tryVideo();document.getElementById('videoStatus').textContent='✓ added';}
   const s=await getFile('song');
-  if(s){songFile=s;audio.src=URL.createObjectURL(s);audio.loop=true;document.getElementById('musicStatus').textContent='✓ added';document.getElementById('musicPick').disabled=true;document.getElementById('musicPick').textContent='Locked ♡';document.getElementById('musicPick').style.opacity='.55';}
+  if(s){
+    songFile=s;audio.src=URL.createObjectURL(s);audio.loop=true;
+    document.getElementById('musicStatus').textContent='✓ added';
+    const lbl=document.getElementById('musicPickLabel');
+    lbl.style.opacity='.55';lbl.style.pointerEvents='none';lbl.textContent='Locked ♡';
+  }
   updateProgress();
-  setTimeout(()=>hearts(8),800);
 })();
 </script>
 </body>
